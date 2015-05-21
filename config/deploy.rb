@@ -108,7 +108,16 @@ namespace :deploy do
   end
  end
  after :migrate, :resolrize
-
+ 
+ # Restart resque-pool.
+ desc "Restart resque-pool"
+ task :resquepoolrestart do
+  on roles(:job) do
+    execute :sudo,  "/sbin/service resque_pool restart"
+  end
+ end
+ before :restart, :resquepoolrestart
+ 
  #after :publishing, :restart
  after :restart, "passenger:warmup" 
 end
