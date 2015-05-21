@@ -14,7 +14,7 @@
 # This can be used to drop a more detailed server definition into the
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
-server 'pcspilot.vmhost.psu.edu', user: 'deploy', roles: %w{web app db}, primary: true
+server 'pcspilot.vmhost.psu.edu:1855', user: 'deploy', roles: %w{web app db}, primary: true
 #server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
 
 
